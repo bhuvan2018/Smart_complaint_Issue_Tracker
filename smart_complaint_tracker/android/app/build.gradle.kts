@@ -10,9 +10,17 @@ plugins {
 }
 
 android {
+    compileSdk = 34
+    defaultConfig {
+        applicationId = "com.example.smart_complaint_tracker"
+        minSdk = 23
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
     namespace = "com.example.smart_complaint_tracker"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
