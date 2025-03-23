@@ -55,3 +55,4 @@ dependencies {
     // Add other Firebase products as needed
     // https://firebase.google.com/docs/android/setup#available-libraries
 }
+apply plugin: "com.google.gms.google-services"
