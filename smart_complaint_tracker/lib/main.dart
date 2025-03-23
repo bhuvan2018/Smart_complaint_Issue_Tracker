@@ -4,13 +4,10 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  try {
-    await Firebase.initializeApp();
-    runApp(MyApp());
-  } catch (e) {
-    runApp(ErrorApp(e.toString())); // Show error message if Firebase fails
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform, // Ensure this is included
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
