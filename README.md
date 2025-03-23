@@ -1,16 +1,16 @@
 Smart Complaint Tracker 🏙️📢
-A mobile app for reporting and tracking campus and city issues efficiently.
+- A mobile app for reporting and tracking campus and city issues efficiently.
 
 🚀 Overview
-Smart Complaint Tracker is a Flutter-based mobile application that enables users to report and track issues within their campus or city seamlessly. It connects students, lecturers, and local authorities for faster issue resolution through transparent tracking.
+- Smart Complaint Tracker is a Flutter-based mobile application that enables users to report and track issues within their campus or city seamlessly. It connects students, lecturers, and local authorities for faster issue resolution through transparent tracking.
 
 📌 Features
-✅ Image-based Issue Reporting – Capture images, tag location, and submit complaints.
-✅ Category-wise Filtering – Separate complaints for campus (faculty, admin) and city (municipality, police, electricity dept.).
-✅ Live Complaint Status Tracking – Monitor progress and resolution times.
-✅ Upvote System – Prioritize common issues by upvoting complaints.
-✅ Anonymous Reporting – Option to submit complaints without revealing identity.
-✅ Real-time Updates – Notifications for status changes and admin responses.
+- ✅ Image-based Issue Reporting – Capture images, tag location, and submit complaints.
+- ✅ Category-wise Filtering – Separate complaints for campus (faculty, admin) and city (municipality, police, electricity dept.).
+- ✅ Live Complaint Status Tracking – Monitor progress and resolution times.
+- ✅ Upvote System – Prioritize common issues by upvoting complaints.
+- ✅ Anonymous Reporting – Option to submit complaints without revealing identity.
+- ✅ Real-time Updates – Notifications for status changes and admin responses.
 
 🛠 Tech Stack
 Frontend
@@ -41,6 +41,7 @@ Clone the repository:
 
 Install dependencies:
 - npm install
+
 Set up your .env file with Firebase and database credentials.
 
 Start the server:
@@ -49,6 +50,9 @@ Start the server:
 Frontend Setup
 Navigate to the frontend folder:
 - cd smart-complaint-tracker
+
+Navigate to the backend folder:
+- cd smart-complaint-tracker-backend
 
 Install dependencies:
 - flutter pub get
