@@ -63,12 +63,12 @@ Run the app:
 🖼 Screenshots (Coming Soon 📸)
 
 📜 License
-This project is licensed under the MIT License.
+- This project is licensed under the MIT License.
 
 🤝 Contributors
-👤 Bhuvan Shetty– Developer
+- 👤 Bhuvan Shetty– Developer
 
 ⭐ Support & Contributions
-💡 Found a bug? Want to contribute? Feel free to open an issue or submit a pull request!
+- 💡 Found a bug? Want to contribute? Feel free to open an issue or submit a pull request!
 
 🚀 Star this repo if you find it useful!
