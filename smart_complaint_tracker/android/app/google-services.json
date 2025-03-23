@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "136098645114",
+    "project_id": "smart-complaint-issue-tracker",
+    "storage_bucket": "smart-complaint-issue-tracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136098645114:android:65e42686c435d8d8e8e7c3",
+        "android_client_info": {
+          "package_name": "com.example.smart_complaint_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOoAWhlK12g-uB8b5dRDP4xbRUzFifTBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
