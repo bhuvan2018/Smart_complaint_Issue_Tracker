@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:your_project_name/services/auth_service.dart';
-import 'package:your_project_name/screens/login_screen.dart';
+import 'package:smart_complaint_tracker/services/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
-  final AuthService authService = AuthService();
-
-  void logout(BuildContext context) async {
-    await authService.signOut();
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
-  }
+  final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +10,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: Text("Home")),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => logout(context),
-          child: Text("Logout"),
+          onPressed: () {
+            _authService.signOut();
+            Navigator.pop(context);
+          },
+          child: Text("Sign Out"),
         ),
       ),
     );

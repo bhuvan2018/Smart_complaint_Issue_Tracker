@@ -1,60 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:your_project_name/services/auth_service.dart';
-import 'package:your_project_name/screens/login_screen.dart';
+import 'package:smart_complaint_tracker/screens/home_screen.dart';
+import 'package:smart_complaint_tracker/screens/login_screen.dart';
+import 'package:smart_complaint_tracker/services/auth_service.dart';
 
-class SignupScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _SignupScreenState createState() => _SignupScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthService authService = AuthService();
+  final AuthService _authService = AuthService();
 
-  void signup() async {
-    String email = emailController.text;
-    String password = passwordController.text;
-    User? user = await authService.signUp(email, password);
+  void _signUp() async {
+    User? user = await _authService.signUpWithEmail(
+      emailController.text,
+      passwordController.text,
+    );
 
     if (user != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Signup successful! Please login.")),
-      );
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()), // Navigate to Login
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Signup failed. Please try again.")),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up failed")));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sign Up")),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: InputDecoration(labelText: "Email"),
-            ),
-            TextField(
-              controller: passwordController,
-              decoration: InputDecoration(labelText: "Password"),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: signup,
-              child: Text("Sign Up"),
-            ),
-          ],
+      backgroundColor: Colors.blueAccent,
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Sign Up", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white)),
+              SizedBox(height: 20),
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(labelText: "Email", fillColor: Colors.white, filled: true),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: passwordController,
+                decoration: InputDecoration(labelText: "Password", fillColor: Colors.white, filled: true),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _signUp,
+                child: Text("Sign Up"),
+              ),
+              TextButton(
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+                child: Text("Already have an account? Login", style: TextStyle(color: Colors.white)),
+              ),
+            ],
+          ),
         ),
       ),
     );

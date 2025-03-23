@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:your_project_name/services/auth_service.dart';
-import 'package:your_project_name/screens/home_screen.dart';
+import 'package:smart_complaint_tracker/screens/home_screen.dart';
+import 'package:smart_complaint_tracker/screens/signup_screen.dart';
+import 'package:smart_complaint_tracker/services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -10,48 +11,54 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthService authService = AuthService();
+  final AuthService _authService = AuthService();
 
-  void login() async {
-    String email = emailController.text;
-    String password = passwordController.text;
-    User? user = await authService.signIn(email, password);
+  void _login() async {
+    User? user = await _authService.signInWithEmail(
+      emailController.text,
+      passwordController.text,
+    );
 
     if (user != null) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()), // Navigate to Home
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login failed. Please check credentials.")),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login failed")));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login")),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: InputDecoration(labelText: "Email"),
-            ),
-            TextField(
-              controller: passwordController,
-              decoration: InputDecoration(labelText: "Password"),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: login,
-              child: Text("Login"),
-            ),
-          ],
+      backgroundColor: Colors.blueAccent,
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Login", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white)),
+              SizedBox(height: 20),
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(labelText: "Email", fillColor: Colors.white, filled: true),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: passwordController,
+                decoration: InputDecoration(labelText: "Password", fillColor: Colors.white, filled: true),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _login,
+                child: Text("Login"),
+              ),
+              TextButton(
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen())),
+                child: Text("Don't have an account? Sign Up", style: TextStyle(color: Colors.white)),
+              ),
+            ],
+          ),
         ),
       ),
     );
