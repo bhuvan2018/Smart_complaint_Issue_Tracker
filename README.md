@@ -1,5 +1,6 @@
 Smart Complaint Tracker 🏙️📢
 A mobile app for reporting and tracking campus and city issues efficiently.
+
 🚀 Overview
 Smart Complaint Tracker is a Flutter-based mobile application that enables users to report and track issues within their campus or city seamlessly. It connects students, lecturers, and local authorities for faster issue resolution through transparent tracking.
 
@@ -13,79 +14,55 @@ Smart Complaint Tracker is a Flutter-based mobile application that enables users
 
 🛠 Tech Stack
 Frontend
-Flutter (Cross-platform UI)
-
-Redux (State Management)
+- Flutter (Cross-platform UI)
+- Redux (State Management)
 
 Backend
-Node.js + Express.js
-
-Socket.io (Real-time updates)
+- Node.js + Express.js
+- Socket.io (Real-time updates)
 
 Database & Storage
-Firestore (NoSQL database)
-
-Firebase Storage (Image uploads)
+- Firestore (NoSQL database)
+- Firebase Storage (Image uploads)
 
 Authentication & Notifications
-Firebase Auth (User login/signup)
-
-Push Notifications / EmailJS
+- Firebase Auth (User login/signup)
+- Push Notifications / EmailJS
 
 Maps & Image Handling
-Google Maps API / OpenStreetMap API (Location tagging)
-
-Camera & Image Picker (Photo uploads)
+- Google Maps API / OpenStreetMap API (Location tagging)
+- Camera & Image Picker (Photo uploads)
 
 🚀 Installation & Setup
 Backend Setup
 Clone the repository:
+- git clone https://github.com/your-username/smart-complaint-tracker.git
+- cd smart-complaint-tracker-backend
 
-sh
-Copy
-Edit
-git clone https://github.com/your-username/smart-complaint-tracker.git
-cd smart-complaint-tracker-backend
 Install dependencies:
-
-sh
-Copy
-Edit
-npm install
+- npm install
 Set up your .env file with Firebase and database credentials.
 
 Start the server:
+- npm run dev
 
-sh
-Copy
-Edit
-npm run dev
 Frontend Setup
 Navigate to the frontend folder:
+- cd smart-complaint-tracker
 
-sh
-Copy
-Edit
-cd smart-complaint-tracker
 Install dependencies:
+- flutter pub get
 
-sh
-Copy
-Edit
-flutter pub get
 Run the app:
+- flutter run
 
-sh
-Copy
-Edit
-flutter run
 🖼 Screenshots (Coming Soon 📸)
+
 📜 License
 This project is licensed under the MIT License.
 
 🤝 Contributors
-👤 Your Name – Developer
-👤 Other Contributors
+👤 Bhuvan Shetty– Developer
 
 ⭐ Support & Contributions
 💡 Found a bug? Want to contribute? Feel free to open an issue or submit a pull request!
