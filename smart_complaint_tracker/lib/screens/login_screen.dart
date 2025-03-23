@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smart_complaint_tracker/screens/home_screen.dart';
 import 'package:smart_complaint_tracker/screens/signup_screen.dart';
 import 'package:smart_complaint_tracker/services/auth_service.dart';

@@ -17,3 +17,7 @@ dependencies:
   flutter_redux: ^0.10.0
   redux: ^5.0.0
   google_sign_in: ^6.3.0
+
+flutter:
+  assets:
+    - assets/icons/google_logo.png
