@@ -51,9 +51,6 @@ Frontend Setup
 Navigate to the frontend folder:
 - cd smart-complaint-tracker
 
-Navigate to the backend folder:
-- cd smart-complaint-tracker-backend
-
 Install dependencies:
 - flutter pub get
 
