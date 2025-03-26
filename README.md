@@ -5,7 +5,7 @@ Smart Complaint Tracker 🏙️📢
 - Smart Complaint Tracker is a Flutter-based mobile application that enables users to report and track issues within their campus or city seamlessly. It connects students, lecturers, and local authorities for faster issue resolution through transparent tracking.
 
 📌 Features
-- ✅ Image-based Issue Reporting – Capture images, tag location, and submit complaints.
+- ✅ Image-based Issue Reporting – Capture images, tag location and submit complaints.
 - ✅ Category-wise Filtering – Separate complaints for campus (faculty, admin) and city (municipality, police, electricity dept.).
 - ✅ Live Complaint Status Tracking – Monitor progress and resolution times.
 - ✅ Upvote System – Prioritize common issues by upvoting complaints.
