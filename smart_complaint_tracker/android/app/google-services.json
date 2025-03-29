@@ -12,7 +12,20 @@
           "package_name": "com.example.smart_complaint_tracker"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "136098645114-s92gcbuu9qp6r4f5a289h0b7er2m6adu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smart_complaint_tracker",
+            "certificate_hash": "3e7c4c6f5f09432a521f8183b78c8b366e1a4412"
+          }
+        },
+        {
+          "client_id": "136098645114-09ms5vrh973ra0toca5gtuaidhggevgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAOoAWhlK12g-uB8b5dRDP4xbRUzFifTBs"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136098645114-09ms5vrh973ra0toca5gtuaidhggevgr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136098645114-h7vs80c8kkg361bfcj996beqvhtkh6rl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smartComplaintTracker"
+              }
+            }
+          ]
         }
       }
     }
