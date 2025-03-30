@@ -9,6 +9,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final AuthService _authService = AuthService();
+  bool isButtonHovered = false;
 
   void _handleGoogleSignIn() async {
     final userCredential = await _authService.signInWithGoogle();
@@ -32,112 +33,88 @@ class _LoginScreenState extends State<LoginScreen> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // App Logo/Icon
-                    Container(
-                      height: 80,
-                      width: 80,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white.withOpacity(0.2)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 8,
-                            spreadRadius: 1,
-                          ),
-                        ],
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Welcome Back!",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Sign in to continue",
+                  style: TextStyle(fontSize: 16, color: Colors.white70),
+                ),
+                SizedBox(height: 30),
+                // Glassmorphic Card Effect
+                Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 10,
+                        spreadRadius: 2,
                       ),
-                      child: Icon(
-                        Icons.support_agent,
-                        size: 40,
-                        color: Colors.white,
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      // Improved Heading and Text
+                      Text(
+                        "Smart Issue Tracking",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 0.5,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 30),
-                    Text(
-                      "Smart Complaint Tracker",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 1.2,
+                      SizedBox(height: 12),
+                      Text(
+                        "Your one-stop solution for complaint management and resolution tracking",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white70,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 15),
-                    Text(
-                      "Welcome Back!",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 1.5,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Sign in to continue tracking and managing your complaints",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: Colors.white70),
-                    ),
-                    SizedBox(height: 40),
-                    // Glassmorphic Card Effect
-                    Container(
-                      padding: EdgeInsets.all(25),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white.withOpacity(0.2)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            blurRadius: 15,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          // New Heading above login button
-                          Text(
-                            "Quick & Secure Access",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            "Use your Google account to sign in",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white70,
-                            ),
-                          ),
-                          SizedBox(height: 25),
-                          // Google Sign-In Button with enhanced styling
-                          ElevatedButton(
+                      SizedBox(height: 25),
+                      // Google Sign-In Button with hover effect
+                      MouseRegion(
+                        onEnter: (_) => setState(() => isButtonHovered = true),
+                        onExit: (_) => setState(() => isButtonHovered = false),
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          transform: isButtonHovered 
+                              ? Matrix4.translationValues(0, -5, 0)
+                              : Matrix4.identity(),
+                          child: ElevatedButton(
                             onPressed: _handleGoogleSignIn,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                              backgroundColor: isButtonHovered 
+                                  ? Colors.white.withOpacity(0.95)
+                                  : Colors.white,
+                              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              elevation: 5,
+                              elevation: isButtonHovered ? 8 : 4,
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Image.asset("assets/icons/google_logo.png", height: 24),
                                 SizedBox(width: 12),
@@ -152,22 +129,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 30),
-                    // Optional: Add extra info or help text
-                    Text(
-                      "Need help? Contact support",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white60,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
