@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset("assets/google_logo.png", height: 24), // Add a Google logo image in `assets`
+                  Image.asset("assets/icons/google_logo.png", height: 24), // Add a Google logo image in `assets`
                   SizedBox(width: 10),
                   Text("Sign in with Google"),
                 ],
