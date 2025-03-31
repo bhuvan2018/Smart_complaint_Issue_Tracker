@@ -36,7 +36,7 @@ Maps & Image Handling
 🚀 Installation & Setup
 Backend Setup
 Clone the repository:
-- git clone https://github.com/your-username/smart-complaint-tracker.git
+- git clone https://github.com/your-username/Smart-complaint-tracker.git
 - cd smart-complaint-tracker-backend
 
 Install dependencies:
