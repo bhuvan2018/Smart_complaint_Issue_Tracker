@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_complaint_tracker/services/auth_service.dart';
 import 'dart:ui';
+import 'package:smart_complaint_tracker/screens/complaint_form.dart'; // Import the ComplaintForm
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,18 +19,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       'icon': Icons.report_problem,
       'color': Colors.white,
       'bgColor': Color(0xFF9C27B0).withOpacity(0.9),
+      'onTap': null, // Will be initialized in initState
     },
     {
       'label': 'Track Issue',
       'icon': Icons.track_changes,
       'color': Colors.white,
       'bgColor': Color(0xFF7B1FA2).withOpacity(0.9),
+      'onTap': null, // Will be initialized in initState
     },
     {
       'label': 'View History',
       'icon': Icons.history,
       'color': Colors.white,
       'bgColor': Color(0xFF6A1B9A).withOpacity(0.9),
+      'onTap': null, // Will be initialized in initState
     },
   ];
 
@@ -40,6 +44,23 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       vsync: this,
       duration: Duration(milliseconds: 300),
     );
+    
+    // Initialize the onTap functions for each FAB item
+    _fabItems[0]['onTap'] = () {
+      // Navigate to ComplaintForm when "File Complaint" is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ComplaintForm()),
+      );
+    };
+    
+    _fabItems[1]['onTap'] = () {
+      // Add functionality for Track Issue
+    };
+    
+    _fabItems[2]['onTap'] = () {
+      // Add functionality for View History
+    };
   }
 
   @override
@@ -304,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             color: Colors.transparent,
                             child: InkWell(
                               customBorder: CircleBorder(),
-                              onTap: () {},
+                              onTap: _fabItems[index]['onTap'], // Use the defined onTap function
                               splashColor: Colors.white.withOpacity(0.1),
                               highlightColor: Colors.white.withOpacity(0.1),
                               child: Center(
@@ -352,7 +373,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   color: Colors.transparent,
                   child: InkWell(
                     customBorder: CircleBorder(),
-                    onTap: toggleExpand,
+                    onTap: isExpanded ? toggleExpand : () {
+                      // When not expanded, directly navigate to ComplaintForm 
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ComplaintForm()),
+                      );
+                    },
+                    onLongPress: toggleExpand, // Long press to show the expanded menu
                     splashColor: Colors.white.withOpacity(0.1),
                     highlightColor: Colors.white.withOpacity(0.1),
                     child: Center(
